@@ -528,28 +528,45 @@ messages.forEach(msg => {
         }
 
         MusicPlay(event) {
-            $(".music_menu_list li").removeClass("selected");
-            $(event.currentTarget).addClass("selected");
             const u = $(event.currentTarget).attr("url");
             Wstoast.closeAll();
+
+            if (this.u === u && this.a) {
+                if (this.a.paused) {
+                    this.a.play();
+                    this.te.text("Đang phát...");
+                    WsToast('success', 'Tiếp tục: ' + this.tt);
+                    $(event.currentTarget).addClass("selected");
+                } else {
+                    this.a.pause();
+                    this.te.text(this.tt);
+                    WsToast('info', 'Tạm dừng: ' + this.tt);
+                    $(event.currentTarget).removeClass("selected");
+                }
+                return;
+            }
+
+            $(".music_menu_list li").removeClass("selected");
+            $(event.currentTarget).addClass("selected");
+
             if (u) {
                 let t = $(event.currentTarget).find(".title");
-                let o = t.text();
-                t.text("Đang phát...");
-                WsToast('success', 'Đang phát: ' + o);
+                let o = this.initials[u] ? this.initials[u] : t.text();
+                
                 if (this.a && !this.a.paused) {
                     this.a.pause();
                 }
-                if (this.u === u && !this.a.paused) {
-                    return;
+                if (this.te && this.tt) {
+                    this.te.text(this.tt);
                 }
+
+                t.text("Đang phát...");
+                WsToast('success', 'Đang phát: ' + o);
+
                 const n = new Audio(u);
                 n.addEventListener('ended', this.NextMusic.bind(this));
                 this.n = n;
                 n.play();
-                if (this.te && this.tt) {
-                    this.te.text(this.tt);
-                }
 
                 this.a = n;
                 this.u = u;
