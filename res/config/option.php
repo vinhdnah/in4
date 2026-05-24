@@ -23,7 +23,7 @@ class ThanhDieuHeader implements ThanhDieuConfigInterface {
     public $bio6 = "Kẻ khờ dại tin vào tình yêu ✨";
     public $SocialNetworks = [
         "facebook" => "https://facebook.com/vinhdnah1", // Thay link facebook
-        "instagram" => "https://www.instagram.com/whenicoe1", // Thay link instagram
+        "instagram" => "https://www.instagram.com/whenicoe1a", // Thay link instagram
         "tiktok" => "https://www.tiktok.com/@v_study36", // Thay link tiktok
         "telegram" => "https://t.me/vinhdnah", // Thay link telegram
         "locket" => "https://locket.cam/vinhbidepzai",
