@@ -27,7 +27,7 @@ class ThanhDieuHeader implements ThanhDieuConfigInterface {
         "tiktok" => "https://www.tiktok.com/@v_study36", // Thay link tiktok
         "telegram" => "https://t.me/vinhdnah", // Thay link telegram
         "locket" => "https://locket.cam/vinhbidepzai",
-        "zalo" => "zalo.me/0346986808"
+        "zalo" => "https://zalo.me/0346986808",
     ];
     public function CommonMethod(){date_default_timezone_set('Asia/Ho_Chi_Minh');}
 }
