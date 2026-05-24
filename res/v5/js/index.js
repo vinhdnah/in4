@@ -139,6 +139,7 @@ messages.forEach(msg => {
             closeButton: "title",
             blockScroll: true,
             title: "Chế Độ Destroy " + inceptionLevel++,
+            position: { x: 'left', y: 'top' },
             offset: {
                 x: randomX,
                 y: randomY
@@ -531,6 +532,13 @@ messages.forEach(msg => {
             const u = $(event.currentTarget).attr("url");
             Wstoast.closeAll();
 
+            if (u === "random") {
+                const songs = $(".music_menu_list li[url!='random']");
+                const randomSong = songs.eq(Math.floor(Math.random() * songs.length));
+                randomSong.click();
+                return;
+            }
+
             if (this.u === u && this.a) {
                 if (this.a.paused) {
                     this.a.play();
@@ -581,12 +589,16 @@ messages.forEach(msg => {
             let s = $(".music_menu_list li.selected");
             let n = s.next();
 
+            if (n.length > 0 && n.attr("url") === "random") {
+                n = n.next();
+            }
+
             if (n.length === 0 && !this.l) {
                 return;
             }
 
             if (n.length === 0 && this.l) {
-                n = $(".music_menu_list li:first-child");
+                n = $(".music_menu_list li[url!='random']").first();
             }
 
             s.removeClass("selected");
@@ -643,7 +655,7 @@ messages.forEach(msg => {
         setTimeout(function(){ x.removeClass('show'); }, 5000);
     }      
     var x = $('#Toast');
-    x.html('Welcome');
+    x.html('Chào mừng bạn đến với góc nhỏ của Vinh! 🚀');
     //- @Hiện/Ẩn Loader Screen Thông Minh-//
     const LoadingPercentage = $('#loading-percentage');
     let LoadingPercentageTimer;
