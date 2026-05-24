@@ -1,0 +1,115 @@
+body {
+  text-align: center;
+  background: #ffcdd2;
+  font-family: sans-serif;
+  font-weight: 100;
+  height: 100vh; /* Chiều cao toàn màn hình */
+  margin: 0;
+  display: flex;
+  justify-content: center; /* Căn giữa ngang */
+  align-items: center; /* Căn giữa dọc */
+  flex-direction: column; /* Đặt các phần tử theo cột */
+}
+h1 {
+  color: #d32f2f;
+  font-weight: 100;
+  font-size: 40px;
+  margin: 40px 0px 20px;
+}
+
+#clockdiv {
+  font-family: sans-serif;
+  color: #fff;
+  display: inline-block;
+  font-weight: 100;
+  text-align: center;
+  font-size: 30px;
+}
+
+#clockdiv > div {
+  padding: 10px;
+  border-radius: 3px;
+  background: #ff8a80;
+  display: inline-block;
+}
+
+#clockdiv div > span {
+  padding: 15px;
+  border-radius: 3px;
+  background: #f44336;
+  display: inline-block;
+}
+
+.smalltext {
+  padding-top: 5px;
+  font-size: 16px;
+}
+
+/* Thêm hiệu ứng cầu vồng cho nút */
+#redirectButton {
+  padding: 15px 30px;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background: black;
+  background-size: 400%;
+  cursor: pointer;
+  transition: background 0.5s, transform 0.3s ease;
+  animation: rainbow 3.5s linear infinite;
+  display: none; /* Nút ẩn mặc định */
+}
+
+/* Tạo hiệu ứng hover cho nút */
+#redirectButton:hover {
+  transform: scale(1.1);
+}
+
+.rainbow {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 36px;
+  color: #aaa;
+  margin-bottom: 0;
+  animation: colorRotate 2.5s linear 0s infinite;
+  transition: background 0.5s, transform 0.3s ease;
+  animation: rainbow 4s linear infinite;
+}
+
+@keyframes rainbow {
+  from {
+    color: #FFFFFF;
+  }
+
+  10% {
+    color: #FF0000;
+  }
+
+  30% {
+    color: #00FF00;
+  }
+
+  45% {
+    color: #0000FF;
+  }
+
+  55% {
+    color: #FFFF00;
+  }
+
+  65% {
+    color: #00FFFF;
+  }
+
+  75% {
+    color: #00FF00;
+  }
+
+  85% {
+    color: #0000FF;
+  }
+
+  100% {
+    color: #FF66CC;
+  }
+}
